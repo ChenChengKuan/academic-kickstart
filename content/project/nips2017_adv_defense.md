@@ -8,7 +8,7 @@ draft = false
 tags = ["deep-learning"]
 
 # Project summary to display on homepage.
-summary = "Create an image classifier that is robust to adversarial attacks"
+summary = "Create an image classifier that is robust to adversarial attacks (40/107)"
 
 # Optional image to display on homepage.
 image_preview = "CleverHans.jpg"
@@ -28,3 +28,5 @@ highlight = true
 image = "headers/adversarial_img.png"
 caption = "source:[Explaing And Harnessing Adversarial Examples](https://arxiv.org/pdf/1412.6572.pdf)"
 +++
+
+Journey available soon...
