@@ -1,11 +1,11 @@
 +++
-title = "Nips2017_adv_defense"
+title = "NIPS2017 Adversarial Exampel Defense"
 date = 2017-12-03T19:33:15+08:00
 draft = false
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
-tags = [deep-learning]
+tags = ["deep-learning"]
 
 # Project summary to display on homepage.
 summary = "Create an image classifier that is robust to adversarial attacks"
@@ -26,5 +26,5 @@ highlight = true
 # Place your image in the `static/img/` folder and reference its filename below, e.g. `image = "example.jpg"`.
 [header]
 image = "headers/adversarial_img.png"
-caption = "source:[Explaing And Harnessing Adversarial Examples](https://arxiv.org/pdf/1412.6572.pdf)
+caption = "source:[Explaing And Harnessing Adversarial Examples](https://arxiv.org/pdf/1412.6572.pdf)"
 +++

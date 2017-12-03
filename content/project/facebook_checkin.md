@@ -3,7 +3,7 @@
 date = "2016-04-27"
 
 # Project title.
-title = "Facebook:Predicting \n Check Ins"
+title = "Facebook:\nPredicting Check Ins"
 
 # Project summary to display on homepage.
 summary = "Identify the correct place for check ins (top 6%, 72/1212)"
