@@ -1,6 +1,6 @@
 +++
 # Date this page was created.
-date = "2016-04-27"
+date = "2016-07-10"
 
 # Project title.
 title = "Facebook:\nPredicting Check Ins"
