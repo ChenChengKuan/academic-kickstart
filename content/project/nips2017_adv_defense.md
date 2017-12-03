@@ -25,6 +25,6 @@ highlight = true
 # Featured image
 # Place your image in the `static/img/` folder and reference its filename below, e.g. `image = "example.jpg"`.
 [header]
-image = "adversarial_img.png"
+image = "headers/adversarial_img.png"
 caption = "source:[Explaing And Harnessing Adversarial Examples](https://arxiv.org/pdf/1412.6572.pdf)
 +++
