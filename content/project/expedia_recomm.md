@@ -3,17 +3,17 @@
 date = "2016-06-11"
 
 # Project title.
-title = "Expedia Hotel\nRecommendations"
+title = "Expedia Hotel \n Recommendations"
 
 # Project summary to display on homepage.
 summary = "Predict which hotel the customer will book (top 7%,121/1974)"
 
 # Optional image to display on homepage (relative to `static/img/` folder).
-image_preview = "Expedia-log.png"
+image_preview = "Expedia-logo.png"
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
-tags = ["Kaggle"]
+tags = ["kaggle"]
 
 # Optional external URL for project (replaces project detail page).
 external_link = ""
