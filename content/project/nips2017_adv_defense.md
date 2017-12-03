@@ -8,10 +8,10 @@ draft = false
 tags = [deep-learning]
 
 # Project summary to display on homepage.
-summary = ""
+summary = "Create an image classifier that is robust to adversarial attacks"
 
 # Optional image to display on homepage.
-image_preview = ""
+image_preview = "CleverHans.jpg"
 
 # Optional external URL for project (replaces project detail page).
 external_link = ""
@@ -25,7 +25,6 @@ highlight = true
 # Featured image
 # Place your image in the `static/img/` folder and reference its filename below, e.g. `image = "example.jpg"`.
 [header]
-image = ""
-caption = ""
-
+image = "adversarial_img.png"
+caption = "source:[Explaing And Harnessing Adversarial Examples](https://arxiv.org/pdf/1412.6572.pdf)
 +++
