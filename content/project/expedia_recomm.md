@@ -3,7 +3,7 @@
 date = "2016-06-11"
 
 # Project title.
-title = "Expedia Hotel \n Recommendations"
+title = "Expedia Hotel \n Rec."
 
 # Project summary to display on homepage.
 summary = "Predict which hotel the customer will book (top 7%,121/1974)"
