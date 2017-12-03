@@ -12,7 +12,7 @@ summary = "Identify the correct place for check ins (top 6%, 72/1212)"
 image_preview = "facebook_logo.png"
 
 # Tags: can be used for filtering projects.
-# Example: `tags = ["machine-learning", "deep-learning"]`
+# Example: `tags = ["kaggle", "deep-learning"]`
 tags = ["kaggle"]
 
 # Optional external URL for project (replaces project detail page).
