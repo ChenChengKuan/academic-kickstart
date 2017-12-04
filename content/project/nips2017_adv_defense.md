@@ -1,5 +1,5 @@
 +++
-title = "NIPS2017 Adversarial Exampel Defense"
+title = "NIPS2017 Adversarial Example Defense"
 date = 2017-12-03T19:33:15+08:00
 draft = false
 
