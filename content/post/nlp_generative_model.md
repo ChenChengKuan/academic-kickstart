@@ -38,9 +38,9 @@ Perhaps the most basic task to study the capability of generating meaningful tex
 
 \begin{align}
 \label{eq:1}
-\boldsymbol{y}_{t} = \textrm{softmax}(\frac{ \boldsymbol{h}_t + \boldsymbol{g}_t}{\tau}),
+\boldsymbol{y}_{t} = \textrm{softmax}(\frac{ \boldsymbol{h}_t + \boldsymbol{g}_t}{\tau}), (1)
 \end{align}
-where $\boldsymbol{h}_t$ is the hidden statet of RNN decoder in $t$ step and  $\boldsymbol{g}_t$ is sample from the Gumbel distribution. $\tau$ is a parameter used to control how the close the continuous approximate distribution to the discrete one. When $\tau$ is close to zero, the Eq~\ref{eq:1}
+where $\boldsymbol{h}_t$ is the hidden statet of RNN decoder in $t$ step and  $\boldsymbol{g}_t$ is sample from the Gumbel distribution. $\tau$ is a parameter used to control how the close the continuous approximate distribution to the discrete one. When $\tau \rightarrow 0$, Eq (1) is more like to discrete distribution. When $\tau \rightarrow \inf$, it is more like a uniform distribution. We call this Gumbel-softmax trick. Here are some great tutorial by [Erig Jang](https://blog.evjang.com/2016/11/tutorial-categorical-variational.html) and [Gonzalo Mena](https://casmls.github.io/general/2017/02/01/GumbelSoftmax.html) if you want to learn more about it.
 ## Policy gradient
 ## Variational Autoencoder
 ## Autoencoder
