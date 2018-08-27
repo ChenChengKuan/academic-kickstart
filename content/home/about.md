@@ -10,9 +10,8 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Deep Learning",
-    "Visual Language Understanding",
-    "Reinforcement Learning"
+    "Generative Model",
+    "Visual Language Understanding"
   ]
 
 # List your qualifications (such as academic degrees).
@@ -26,5 +25,5 @@ weight = 5
 
 # About me
 
-I received my BS of Electrical Engineering from [National Taiwan University](http://www.ntu.edu.tw/english/). I currently work with Prof. [Shou-De,Lin](https://www.csie.ntu.edu.tw/~sdlin/) in Machine Discovery and Social Mining Lab and Prof. [Min Sun](http://aliensunmin.github.io/) in [Vision Science Lab](http://aliensunmin.github.io/lab/info.html). My current research interests are visual and language understanding, cross-modality representation and reinforcement learning. Also, I had some experiences about applying deep learning to malicious software detection in industry. In 2013, I spent a wonderful year as visiting student in [CentraleSupelec](http://www.centralesupelec.fr/), Paris, France. More details please see my [CV](https://drive.google.com/file/d/1eHhovaaWzo8N8YraK6_eicI5Y1372q0I/view?usp=sharing). I also have a [Kaggle page](https://www.kaggle.com/kuanchen)
+I received my BS of Electrical Engineering from [National Taiwan University](http://www.ntu.edu.tw/english/). I currently work with Prof. [Min Sun](http://aliensunmin.github.io/) in [Vision Science Lab] (http://aliensunmin.github.io/lab/info.html) (Co-supervised with [Dr. Ming-Yu, Liu](https://scholar.google.com/citations?user=y-f-MZgAAAAJ&hl=en)). I have broad interests of vision and language. In particular, I am interested in natural language generation and how to learn disentangled respresentation of natural language.  In additoin, I had some experiences about applying deep learning to malicious software detection in industry. In 2013, I spent a wonderful year as visiting student in [CentraleSupelec](http://www.centralesupelec.fr/), Paris, France. More details please see my [CV](https://drive.google.com/file/d/1eHhovaaWzo8N8YraK6_eicI5Y1372q0I/view?usp=sharing). I also have a [Kaggle page](https://www.kaggle.com/kuanchen)
 
