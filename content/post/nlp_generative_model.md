@@ -34,12 +34,13 @@ Despite of the difficulty, many methods have been proposed in the last two years
 
 # Model for text generation
 ## Improved training of GAN
-Perhaps the most basic task to study the capability of generating meaningful text is to generate simple character with certain pattern. Kusner et al. [1] proposes to relax the output multimodal discrete distribution for each time step $t$ in RNN decoder by using Gumbel-softmax, which is a continuous approximation parameterized by a temperature $\tau$.
+Perhaps the most basic task to study the capability of generating meaningful text is to generate simple character with certain pattern. Kusner et al. [1] proposes to relax the output multimodal discrete distribution for each time step $t$ in RNN decoder by using Gumbel-softmax, which is a continuous approximation.
 
 \begin{align}
+\label{eq:1}
 \boldsymbol{y}_{t} = \textrm{softmax}(\frac{ \boldsymbol{h}_t + \boldsymbol{g}_t}{\tau}),
 \end{align}
-where $\boldsymbol{h}_t$ is the hidden statet of RNN decoder in $t$ step and  $\boldsymbol{g}_t$ is sample from the Gumbel distribution.
+where $\boldsymbol{h}_t$ is the hidden statet of RNN decoder in $t$ step and  $\boldsymbol{g}_t$ is sample from the Gumbel distribution. $\tau$ is a parameter used to control how the close the continuous approximate distribution to the discrete one. When $\tau$ is close to zero, the Eq~\ref{eq:1}
 ## Policy gradient
 ## Variational Autoencoder
 ## Autoencoder
