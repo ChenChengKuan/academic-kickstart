@@ -20,6 +20,9 @@ preview = false
 
 +++
 {{% toc %}}
+<style>
+.reveal section img { background:none; border:none; box-shadow:none; }
+</style>
 
 # Introduction
 The recent progress of generative adversarial network (GAN) has shown siginificant imporvment of learning latent representation of high-dimensional continuous data such as images and videos in vision domain. Many amazing applications such as video synthesis and image translation are based on the capability of GAN.
