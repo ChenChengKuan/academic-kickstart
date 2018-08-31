@@ -77,7 +77,7 @@ Unlike GAN, Variational Autoencoder (VAE) can work with both continous and discr
 For peolpe who are not familiar with VAE, I recommend the tutorial ([here](https://jaan.io/what-is-variational-autoencoder-vae-tutorial/) and [here](https://arxiv.org/abs/1601.00670)) written by Jaan Altossar and David Blei et al.(if you want to go deeper). Here I just give a brief introduction. Given data $\boldsymbol{x}$, latent variable $\boldsymbol{z}$, encoder parameters $\boldsymbol{\theta}$ and decoder parameters $\boldsymbol{\phi}$,  the goal of VAE is to approximate the posterior $p(\boldsymbol{z}|\boldsymbol{x})$ by a familiy of distribution $q_{\lambda}(\boldsymbol{z}|\boldsymbol{x})$. This is achievied by maximizing the evidence lower bound (ELOB). For a single data point $x$, the ELOB is
 
 \begin{align}
-\textrm{ELOB}_{i}(\theta, \phi) = \mathbb{E}_{q_\theta}
+\textrm{ELOB}_{i}(\theta, \phi) = \mathbb{E}_q_\theta(z|x)
 \end{align}
 
 ## Autoencoder
