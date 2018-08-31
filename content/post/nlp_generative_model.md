@@ -78,8 +78,7 @@ For peolpe who are not familiar with VAE, I recommend the tutorial ([here](https
 <figure>
 <img src="/img/elbo.png" height="680" width="510" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 </figure>
-
-
+Maximizing the above objective will encorage model to learn latent representation $z$ that 
 ## Autoencoder
 ## Policy gradient
 ## Alternative decoding objective
