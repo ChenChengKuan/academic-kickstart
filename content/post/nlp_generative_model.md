@@ -80,7 +80,6 @@ Actually, the first recent generative model for text is based on VAE proposed by
 <img src="/img/nlg_overview_fig4.png" height="960" width="720" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">Main architecture proposed by Bowman et al.</figcaption>
 </figure>
-The RNN-encoder inference the $\mu$ and $\sigma$ of Gaussian and a sample $z$ is draw from the posterior for decoder to generate the sentences.
 
 ## Autoencoder
 ## Policy gradient
