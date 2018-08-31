@@ -73,8 +73,11 @@ Unlike GAN, Variational Autoencoder (VAE) can work with both continous and discr
 <figure>
 <img src="/img/elbo.png" height="680" width="510" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 </figure>
+\begin{align}
+\mathbb{E}_{q_{\\theta}(z|x_i)}
+\end{align}
 
-The first term can be viewed as how well the model can reconstruct data given the learned representation. The second term can be viewed as a regularization which we hope the learned posterior can be close to prior. Maximizing ELBO will encourage the model learn useful latent representation that explain the data well. Note that we use $q_{\\theta}$
+The first term can be viewed as how well the model can reconstruct data given the learned representation. The second term can be viewed as a regularization which we hope the learned posterior can be close to prior. Maximizing ELBO will encourage the model learn useful latent representation that explain the data well. Note that we use $q_{\\theta}$ to replace $q_{\\lambda}$ since we use encoder to inference $\lambda$.
 
 Actually, the first recent generative model for text is based on VAE proposed by Bowman et al. They propose a RNN-based variational autoencoder which capture the global feautre of sentces (e.g., topic, style) in continous variables. The architecutre is shown below and many subsequent works follow similar architecture with some modifications.
 <figure>
