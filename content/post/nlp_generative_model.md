@@ -70,12 +70,15 @@ Standard GAN framework is designed for continuous data. Applying it to discrete 
 
 ## Variational Autoencoder
 Unlike GAN, Variational Autoencoder (VAE) can work with both continous and discrete input data directly. For peolpe who are not familiar with VAE, I recommend the tutorial ([here](https://jaan.io/what-is-variational-autoencoder-vae-tutorial/) and [here](https://arxiv.org/abs/1601.00670)) written by Jaan Altossar and David Blei et al.(if you want to go deeper). Here I just give a brief introduction. Given data $\boldsymbol{x}$, latent variable $\boldsymbol{z}$, encoder parameters $\boldsymbol{\theta}$ and decoder parameters $\boldsymbol{\phi}$, the goal of VAE is to approximate the posterior $p(\boldsymbol{z}|\boldsymbol{x})$ by a familiy of distribution $q_\lambda(\boldsymbol{z}|\boldsymbol{x})$, where $\lambda$ indicates the familiy of distribution. Take Gaussian for example, $\lambda = \(\mu, \sigma\)$. This is achievied by maximizing the evidence lower bound (ELBO). For a single data point $x$, the ELBO is
+
 <figure>
 <img src="/img/elbo.png" height="680" width="510" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 </figure>
+
 The first term can be viewed as how well the model can reconstruct data given the learned representation. The second term can be viewed as a regularization which we hope the learned posterior can be close to prior. Maximizing ELBO will encourage the model learn useful latent representation that explain the data well. Note that we use $q_{\\theta}$ to replace $q_{\\lambda}$ since we use encoder to inference $\lambda$.
 
 Actually, the first recent generative model for text is based on VAE proposed by Bowman et al. They propose a RNN-based variational autoencoder which capture the global feautre of sentces (e.g., topic, style) in continous variables. The architecutre is shown below and many subsequent works follow similar architecture with some modifications.
+
 <figure>
 <img src="/img/nlg_overview_fig4.png" height="960" width="720" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">Main architecture proposed by Bowman et al.</figcaption>
