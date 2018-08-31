@@ -78,6 +78,7 @@ For peolpe who are not familiar with VAE, I recommend the tutorial ([here](https
 
 \begin{align}
 \textrm{ELOB}_{i}(\theta, \phi) = \mathbb{E}_q\_\theta
+
 \end{align}
 
 ## Autoencoder
