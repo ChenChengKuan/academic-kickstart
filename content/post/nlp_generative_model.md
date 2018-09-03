@@ -124,7 +124,10 @@ Concurrently, Semeniuta et al. propose a convolutional-deconvolutional VAE with 
 
 They further introduce an auxiliary loss $J\_{aux} = -\alpha\mathbb{E}\_{q(\boldsymbol{z}|\boldsymbol{x})}\textrm{log}p\_{\phi}(\boldsymbol{x}|\boldsymbol{z})$ into the optimization of ELBO to force the decoding process rely on the latent representation $\boldsymbol{z}$. $\alpha$ is a parameter to control the penalty of auxiliary loss. 
 
-In their experiments, the compare the decoding performane of proposed method with vanilla VAE under historyless and history setting. In other words, they test the decoding performance of model by using word dropout rate $p$ from 1.0 to certain ratio during training (i.e. Randomly replacing the ground truth with <unk> token during training). They also study the 
+In their experiments, the compare the decoding performane of proposed method with vanilla VAE under historyless and history setting. In other words, they test the decoding performance of models by using word dropout rate $p$ from 1.0 to certain ratio during training (i.e. Randomly replacing the ground truth with \<UNK\> token during training). They also study the benefit of auxilary loss for decoding performance as the expressive power of decoder become stronger (i.e. deeper layer). The results are shown in Fig 10.
+
+
+Developing new methods to address the latent variable collapse is still an very active research area. In very recent work~\cite{}. The authors propose semi-amortized inference that initializing variatoinal parameter by amortized inference then applying stochastic variational inference to refine them. Another recent work~\cite introduce skip connections between latent variables $\boldsymbol{z}$ and decoder to enforce the relationship between latent variables and reconstrunction loss. Both results are better than all previous baseliens and the latter slightly improved the former.  
 
 
 ## Autoencoder
