@@ -117,13 +117,13 @@ The latent space learned by proposed VAE by setting dimension of $z=2$ on Yahoo 
 </figure>
 
 Concurrently, Semeniuta et al. propose a convolutional-deconvolutional VAE with recurrent models on top of the output of deconlolutional layers in Fig. 9 for text generation. 
-
-
-They further introduce an auxiliary loss $J\_{aux} = -\alpha\mathbb{E}\_{q(\boldsymbol{z}|\boldsymbol{x})}\textrm{log}p\_{\phi}(\boldsymbol{x}|\boldsymbol{z})$ into the optimization of ELBO to force the decoding process rely on the latent representation $\boldsymbol{z}$. $\alpha$ is a parameter to control the penalty of auxiliary loss.
 <figure>
-<img src="/img/nlg_overview_fig9.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/nlg_overview_fig9.png" height="880" width="660" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">kmk</figcaption>
 </figure>
+
+They further introduce an auxiliary loss $J\_{aux} = -\alpha\mathbb{E}\_{q(\boldsymbol{z}|\boldsymbol{x})}\textrm{log}p\_{\phi}(\boldsymbol{x}|\boldsymbol{z})$ into the optimization of ELBO to force the decoding process rely on the latent representation $\boldsymbol{z}$. $\alpha$ is a parameter to control the penalty of auxiliary loss.
+
 ## Autoencoder
 ## Policy gradient
 ## Alternative decoding objective
