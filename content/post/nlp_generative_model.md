@@ -69,20 +69,45 @@ The textGAN proposed by Zhang et al. answers this question. They initialize the 
 Standard GAN framework is designed for continuous data. Applying it to discrete data directly need to reformulate the learning objective or use pretraining to facilitate the learning. Is there any generative model that naturally fit the discrete input data? I will discuss it in the next section.
 
 ## Variational Autoencoder
-Unlike GAN, Variational Autoencoder (VAE) can work with both continous and discrete input data directly. For peolpe who are not familiar with VAE, I recommend the tutorial ([here](https://jaan.io/what-is-variational-autoencoder-vae-tutorial/) and [here](https://arxiv.org/abs/1601.00670)) written by Jaan Altossar and David Blei et al.(if you want to go deeper). Here I just give a brief introduction. Given data $\boldsymbol{x}$, latent variable $\boldsymbol{z}$, encoder parameters $\boldsymbol{\theta}$ and decoder parameters $\boldsymbol{\phi}$, the goal of VAE is to approximate the posterior $p(\boldsymbol{z}|\boldsymbol{x})$ by a familiy of distribution $q_\lambda(\boldsymbol{z}|\boldsymbol{x})$, where $\lambda$ indicates the familiy of distribution. Take Gaussian for example, $\lambda = \(\mu, \sigma\)$. This is achievied by maximizing the evidence lower bound (ELBO). For a single data point $x$, the ELBO is
+Unlike GAN, Variational Autoencoder (VAE) can work with both continous and discrete input data directly. For peolpe who are not familiar with VAE, I recommend the tutorial ([here](https://jaan.io/what-is-variational-autoencoder-vae-tutorial/) and [here](https://arxiv.org/abs/1601.00670)) written by Jaan Altossar and Blei et al.(if you want to go deeper). Here I just give a brief introduction. Given data $\boldsymbol{x}$, latent variable $\boldsymbol{z}$, encoder parameters $\boldsymbol{\theta}$ and decoder parameters $\boldsymbol{\phi}$, the goal of VAE is to approximate the posterior $p(\boldsymbol{z}|\boldsymbol{x})$ by a familiy of distribution $q_\lambda(\boldsymbol{z}|\boldsymbol{x})$, where $\lambda$ indicates the familiy of distribution. Take Gaussian for example, $\boldsymbol{\lambda} = \(\boldsymbol{\mu}, \boldsymbol{\sigma}\)$. This is achievied by maximizing the evidence lower bound (ELBO). For a single data point $x$, the ELBO is
 \begin{align}
 \textrm{ELOB}\_i = \mathbb{E}\_{q\_{\theta}(z|x\_i)}(\textrm{log}p\_{\phi}(x\_i|z)) - \textrm{KL}(q\_{\theta}(z|x\_i)||p(z))
 \end{align}
-The first term can be viewed as how well the model can reconstruct data given the learned representation. The second term can be viewed as a regularization which we hope the learned posterior can be close to prior. Maximizing ELBO will encourage the model learn useful latent representation that explain the data well. Note that we use $q\_{\theta}$ to replace the $q\_{\lambda}$ since we use encder to inference $\lambda$
+The first term can be viewed as how well the model can reconstruct data given the learned representation. The second term can be viewed as a regularization which we hope the learned posterior can be close to prior. Maximizing ELBO will encourage the model learn useful latent representation that explain the data well. Note that we use $q\_{\theta}$ to replace the $q\_{\lambda}$ since we use encoder to inference $\lambda$
 
-Actually, the first recent generative model for text is based on VAE proposed by Bowman et al. They propose a RNN-based variational autoencoder which capture the global feautre of sentces (e.g., topic, style) in continous variables. The architecutre is shown below and many subsequent works follow similar architecture with some modifications.
+Actually, the recent generative model for text is based on VAE proposed by Bowman et al. They propose a RNN-based variational autoencoder which capture the global feautre of sentces (e.g., topic, style) in continous variables. The RNN-encoder inference the $\mu$ and $\sigma$ of Gaussian and a sample $z$ is draw from the posterior for decoder to generate the sentences. The architecutre is shown below and many subsequent works follow similar architecture with some modifications.
 
 <figure>
 <img src="/img/nlg_overview_fig4.png" height="960" width="720" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<figcaption align="middle">Main architecture proposed by Bowman et al.</figcaption>
+<figcaption align="middle">Main architecture proposed by Bowman et al. The code z is only concated to the first hidden state of decoder</figcaption>
 </figure>
 
-The RNN-encoder inference the $\mu$ and $\sigma$ of Gaussian and a sample $z$ is draw from the posterior for decoder to generate the sentences.
+
+The core issue of using VAE is _latent variable collapse_, which means the KL term in the ELBO become zero during the optimization. This might seem to be confused at first since zero KL term seems to be beneficial to ELBO as we hope to maximize it. However, if we examine the KL term carefully, zero KL term means that the posterior $q\_{\theta}(z|x\_i)$ is equal to prior $p(z)$ thus posterior is independent from the input data! Latent variable collapse thus preclude us from learning useful latent representation from the input data which is a goal we aim to achieve. This is a common case in language modelling as discussed in~\cite{}. Once this happened, the RNN decoder will completely ignore the latent representation and naively use decoder's capability to achieve the optimal. The difficulty here is how do we maximize the ELBO and prevent the KL term from going to zero at the same. 
+
+Bowman et al. propose KL-annealing and word dropout to alleviate this issue, which increase the weight of KL term during training and randomly replace word token by \<UNK\> to weaken the decoder thus force decoder to rely on global representation $z$ instead of learned language model. However, these techniques cannot solve this issue and VAE trained in this way is slightly worse than language model in NLL despite it can geenrate more plausible sentences than AE when moving in the latent space. Therefore many this line of research focus on finding better techniques to address latent variable collapse and I will dicuss them later.
+
+Yang et al. hypothesize and validate the contexual capacity of decoder is related to latent variable collapse. They replace original RNN decoder with dilated convolutional neural network as the figure below, which facilitates the control of contextual capacity by changing dilation.
+
+<figure>
+<img src="/img/nlg_overview_fig5.png" height="960" width="720" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Architecture proposed by Yang et al. The left encoder-decoder similar to Fig. 4 and the right is the detail inside dilated CNN decoder. Note that the code $z$ is concated to each word embedding</figcaption>
+</figure>
+
+The dilated CNN used in the decoder is 1D dilated CNN, which is a way to enlarge the reception field without sacrifying computation cost. By controlling the dilation size in CNN. The author study 4 configurations of decoder with following depth and dilation: [1, 2, 4], [1, 2, 4, 8, 16], [1, 2, 4, 8, 16, 1, 2, 4, 8, 16] and [1, 2, 4, 8, 16, 1, 2, 4, 8, 16, 1, 2, 4, 8, 16], which are denoted as SCNN, MCNN, LCNN and VLCNN.
+They also compare with vanilla VAE proposed by Bownman et al. In each configuration, they further divide 3 training methods for comparison, which are: language model (LM), VAE (architectures proposed in this paper) and VAE + init that initalize the encoder's weight by language model.
+The results are shown in Fig. 6
+
+<figure>
+<img src="/img/nlg_overview_fig6.png" height="250" width="400" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">NLL and KL term of all methods on Yahoo dataset. There are three bars in each group which are LM, VAE, VAE+init. The red bar is the propotion of KL term in reconstruction loss</figcaption>
+</figure>
+
+The vanilla VAE has worse NLL as KL term goes to zero which agrees with the the negative results found by Bowman et al. For the rest baselines based on CNN with different configurations (i.e. dilation, depth), we can see better improvement for small model (SCNN) over pure LM and the improvement gradually diminish as model size become large (VLCNN). This finding suggests that using dilated CNN as decoder could alleviate latent variable collapse if we carefully choose the decoder contextual capacity. Using pretrained language model also helps for the learning. 
+
+
+
+
 ## Autoencoder
 ## Policy gradient
 ## Alternative decoding objective
