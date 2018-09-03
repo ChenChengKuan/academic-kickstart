@@ -122,7 +122,9 @@ Concurrently, Semeniuta et al. propose a convolutional-deconvolutional VAE with 
 <figcaption align="middle">Left: The convolutioanl-deconvolutional encoder decoder part of proposed hybrid VAE. Right: Two vairant of recurrent model appended on top of ouput of deconvolutional layer, which are traditional LSTM and ByteNet~\cite{} </figcaption>
 </figure>
 
-They further introduce an auxiliary loss $J\_{aux} = -\alpha\mathbb{E}\_{q(\boldsymbol{z}|\boldsymbol{x})}\textrm{log}p\_{\phi}(\boldsymbol{x}|\boldsymbol{z})$ into the optimization of ELBO to force the decoding process rely on the latent representation $\boldsymbol{z}$. $\alpha$ is a parameter to control the penalty of auxiliary loss. In their experiments, the compare the decoding performane of proposed method with vanilla VAE under historyless and history setting. In other words, they test the capability of model to decode the text by applying word dropout (i.e. randomly replace the ground truth token at time step $t$ with \<UNK\>) rate from $p = 1.0$ to certain ratio.
+They further introduce an auxiliary loss $J\_{aux} = -\alpha\mathbb{E}\_{q(\boldsymbol{z}|\boldsymbol{x})}\textrm{log}p\_{\phi}(\boldsymbol{x}|\boldsymbol{z})$ into the optimization of ELBO to force the decoding process rely on the latent representation $\boldsymbol{z}$. $\alpha$ is a parameter to control the penalty of auxiliary loss. 
+
+In their experiments, the compare the decoding performane of proposed method with vanilla VAE under historyless and history setting. In other words, they test the decoding performance of model by using word dropout rate $p$ from 1.0 to certain ratio during training (i.e. Randomly replacing the ground truth with <unk> token during training). They also study the 
 
 
 ## Autoencoder
