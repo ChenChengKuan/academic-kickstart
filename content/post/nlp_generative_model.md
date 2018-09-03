@@ -113,7 +113,7 @@ The latent space learned by proposed VAE by setting dimension of $z=2$ on Yahoo 
 </figure>
 jj
 <figure>
-<img src="/img/nlg_overview_fig8.jpg" height="640" width="480" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/nlg_overview_fig8.jpg" height="2400" width="1600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">kmk</figcaption>
 </figure>
 
