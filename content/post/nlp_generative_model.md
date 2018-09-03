@@ -108,12 +108,12 @@ The vanilla VAE has worse NLL as KL term goes to zero which agrees with the the 
 The latent space learned by proposed VAE by setting dimension of $z=2$ on Yahoo and Yelp review dataset is visualized in Fig.7. It's interesting to see different topics are mapped to different regions and the sentiments (i.e. rating from 1-5) of review are horinzontally spread. The author extend the proposed method to conditional text generation. Some examples are presented in Fig. 8.
 
 <figure>
-<img src="/img/nlg_overview_fig7.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/nlg_overview_fig7.png" height="640" width="480" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">NLL and KL term of all methods on Yahoo dataset. There are three bars in each group which are LM, VAE, VAE+init. The red bar is the propotion of KL term in reconstruction loss</figcaption>
 </figure>
 
 <figure>
-<img src="/img/nlg_overview_fig8.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/nlg_overview_fig8.png" height="1200" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">NLL and KL term of all methods on Yahoo dataset. There are three bars in each group which are LM, VAE, VAE+init. The red bar is the propotion of KL term in reconstruction loss</figcaption>
 </figure>
 
