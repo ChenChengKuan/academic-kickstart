@@ -112,7 +112,7 @@ The latent space learned by proposed VAE by setting dimension of $z=2$ on Yahoo 
 <figcaption align="middle">NLL and KL term of all methods on Yahoo dataset. There are three bars in each group which are LM, VAE, VAE+init. The red bar is the propotion of KL term in reconstruction loss</figcaption>
 </figure>
 <figure>
-<img src="/img/nlg_overview_fig8.jpg" height="2400" width="3000" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/nlg_overview_fig8.jpg" height="2400" width="6000" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">kmk</figcaption>
 </figure>
 
