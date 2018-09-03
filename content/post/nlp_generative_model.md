@@ -85,7 +85,7 @@ Actually, the recent generative model for text is based on VAE proposed by Bowma
 
 The core issue of using VAE is _latent variable collapse_, which means the KL term in the ELBO become zero during the optimization. This might seem to be confused at first since zero KL term seems to be beneficial to ELBO as we hope to maximize it. However, if we examine the KL term carefully, zero KL term means that the posterior $q\_{\theta}(z|x\_i)$ is equal to prior $p(z)$ thus posterior is independent from the input data! Latent variable collapse thus preclude us from learning useful latent representation from the input data which is a goal we aim to achieve. This is a common case in language modelling as discussed in~\cite{}. Once this happened, the RNN decoder will completely ignore the latent representation and naively use decoder's capability to achieve the optimal. The difficulty here is how do we maximize the ELBO and prevent the KL term from going to zero at the same. 
 
-Bowman et al. propose KL-annealing and word dropout to alleviate this issue, which increase the weight of KL term during training and randomly replace word token by \<UNK\> to weaken the decoder thus force decoder to rely on global representation $z$ instead of learned language model. However, these techniques cannot solve this issue and VAE trained in this way is slightly worse than language model in NLL despite it can geenrate more plausible sentences than AE when moving in the latent space. Therefore many this line of research focus on finding better techniques to address latent variable collapse and I will dicuss them later.
+Bowman et al. propose KL-annealing and word dropout to alleviate this issue, which increase the weight of KL term during training and randomly replace word token by \<UNK\> to weaken the decoder thus force decoder to rely on global representation $z$ instead of learned language model. However, these techniques cannot solve this issue and VAE trained in this way is slightly worse than language model (RNNLM) in NLL despite it can geenrate more plausible sentences than autoencoder when moving in the latent space. Therefore many this line of research focus on finding better techniques to address latent variable collapse and I will dicuss them later.
 
 Yang et al. hypothesize and validate the contexual capacity of decoder is related to latent variable collapse. They replace original RNN decoder with dilated convolutional neural network as the figure below, which facilitates the control of contextual capacity by changing dilation.
 
@@ -105,6 +105,17 @@ The results are shown in Fig. 6
 
 The vanilla VAE has worse NLL as KL term goes to zero which agrees with the the negative results found by Bowman et al. For the rest baselines based on CNN with different configurations (i.e. dilation, depth), we can see better improvement for small model (SCNN) over pure LM and the improvement gradually diminish as model size become large (VLCNN). This finding suggests that using dilated CNN as decoder could alleviate latent variable collapse if we carefully choose the decoder contextual capacity. Using pretrained language model also helps for the learning. 
 
+The latent space learned by proposed VAE by setting dimension of $z=2$ on Yahoo and Yelp review dataset is visualized in Fig.7. It's interesting to see different topics are mapped to different regions and the sentiments (i.e. rating from 1-5) of review are horinzontally spread. The author extend the proposed method to conditional text generation. Some examples are presented in Fig. 8.
+
+<figure>
+<img src="/img/nlg_overview_fig7.png" height="250" width="400" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">NLL and KL term of all methods on Yahoo dataset. There are three bars in each group which are LM, VAE, VAE+init. The red bar is the propotion of KL term in reconstruction loss</figcaption>
+</figure>
+
+<figure>
+<img src="/img/nlg_overview_fig8.png" height="250" width="400" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">NLL and KL term of all methods on Yahoo dataset. There are three bars in each group which are LM, VAE, VAE+init. The red bar is the propotion of KL term in reconstruction loss</figcaption>
+</figure>
 
 
 
