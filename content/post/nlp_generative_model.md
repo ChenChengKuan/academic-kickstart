@@ -19,12 +19,8 @@ caption = ""
 preview = false
 
 +++
-{{% toc %}}
-<style>
-.reveal section img { background:none; border:none; box-shadow:none; }
-</style>
+> Abstract: Test
 
-# Introduction
 The recent progress of generative adversarial network (GAN) has shown siginificant imporvment of learning latent representation of high-dimensional continuous data such as images and videos in vision domain. Many amazing applications such as video synthesis and image translation are based on the capability of GAN.
 
 
@@ -35,6 +31,7 @@ Unfortunately, compared with hundreds of development of GAN and its applications
 
 Despite of the difficulty, many methods have been proposed in the last two years to address this issue and some of them have many interesting results. In this article, I will give an overview of these methods, issue about evaluation and their applications.
 
+{{% toc %}}
 # Model for text generation
 ## Improved training of GAN
 Perhaps the most basic task to study the capability of generating meaningful text is to generate simple characters with certain pattern. Kusner et al. [1] proposes to relax the output multimodal discrete distribution for each time step $t$ in RNN decoder by using Gumbel-softmax, which is a continuous approximation.
