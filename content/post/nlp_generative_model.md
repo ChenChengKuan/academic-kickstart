@@ -19,12 +19,12 @@ caption = ""
 preview = false
 
 +++
-> _Abstract: generative adversarial network (GAN) has shown siginificant imporvment of learning latent representation of high-dimensional continuous data such as images and videos. Many amazing applications such as video synthesis and image translation are based on the capability of GAN. Unfortunately, applying GAN to discrete input remain challenging problem mainly because the discrete nature of data prevent the discriminator from providing useful gradient information for learning. In this post, I will foucus on some recent techniques to bypass this difficulty in the text generation, evaluation and applications_
+> _Abstract: generative adversarial network (GAN) has shown siginificant imporvments of learning latent representation of high-dimensional continuous data such as images and videos. Many amazing applications such as video synthesis and image translation are based on the capability of GAN. Unfortunately, applying GAN to discrete input remain a challenging problem mainly because the discrete nature of data prevent the discriminator from providing useful gradient information for learning. In this post, I will foucus on some recent techniques to address this difficulty in the text generation, its evaluation and applications_
 
 
-Unfortunately, compared with hundreds of development of GAN and its applications (See the [GAN zoo](https://github.com/hindupuravinash/the-gan-zoo)), only a few progress has been made for the text. In general, it is the discrete structure of text that makes apply GAN to language inappropriate, which is designed for continuous data.  According to [Goodfellow](https://www.reddit.com/r/MachineLearning/comments/40ldq6/generative_adversarial_networks_for_text/), the generator learns how to slightly change the synethetic data through the gradient information from the discriminator. Such slight change is only meaningful for continuous data. For example, it is resaonable to change a pixel value from 1 to 1 + 0.001 while it is not for changing "penguin" to  "penguin" + 0.001.
+There are many developments of GAN ([GAN zoo](https://github.com/hindupuravinash/the-gan-zoo))and amazing applications for the continuous data such image and video. However, the development of GAN and its application in discrete data such as text is far from explored. In general, it is the discrete nature of text that makes apply GAN to such data difficult. According to [Goodfellow](https://www.reddit.com/r/MachineLearning/comments/40ldq6/generative_adversarial_networks_for_text/), the generator learns how to slightly change the synethetic data through the gradient information from the discriminator. Such slight change is only meaningful for continuous data. For example, it is resaonable to change a pixel value from 1 to 1 + 0.001 while it is not for changing "penguin" to  "penguin" + 0.001.
 
-Despite of the difficulty, many methods have been proposed in the last two years to address this issue and some of them have many interesting results. In this article, I will give an overview of these methods, issue about evaluation and their applications.
+Recently, several approaches for text generation have been proposed to address this issue and some of them have many interesting results. In this article, I will give an overview of these methods, issue about evaluation and their applications.
 
 {{% toc %}}
 # Model for text generation
@@ -103,9 +103,10 @@ The latent space learned by proposed VAE by setting dimension of $z=2$ on Yahoo 
 <img src="/img/nlg_overview_fig7.png" height="640" width="480" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">Regions of different topic and sentiments mapped in the latent space.</figcaption>
 </figure>
+
 <figure>
-<img src="/img/nlg_overview_fig8.jpg" height="2400" width="6000" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<figcaption align="middle">Left: Text generated conditioned on topic labels. Right: Text generated conditioned on sentiment labels.</figcaption>
+<img src="/img/nlg_overview_fig8.png" height="800" width="1200" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Up: Text generated conditioned on topic labels. Bottom: Text generated conditioned on sentiment labels.</figcaption>
 </figure>
 
 Concurrently, Semeniuta et al. propose a convolutional-deconvolutional VAE with recurrent models on top of the output of deconlolutional layers (Hybrid VAE) in Fig. 9 for text generation. 
@@ -117,11 +118,16 @@ Concurrently, Semeniuta et al. propose a convolutional-deconvolutional VAE with 
 They further introduce an auxiliary loss $J\_{aux} = -\alpha\mathbb{E}\_{q(\boldsymbol{z}|\boldsymbol{x})}\textrm{log}p\_{\phi}(\boldsymbol{x}|\boldsymbol{z})$ into the optimization of ELBO to force the decoding process rely on the latent representation $\boldsymbol{z}$. $\alpha$ is a parameter to control the penalty of auxiliary loss. 
 
 In their experiments, the compare the decoding performane of proposed method with vanilla VAE under historyless and history setting. In other words, they test the decoding performance of models by using word dropout rate $p$ from 1.0 to certain ratio during training (i.e. Randomly replacing the ground truth with \<UNK\> token during training). They also study the benefit of auxilary loss for decoding performance as the expressive power of decoder become stronger (i.e. deeper layer). The results are shown in Fig 10.
+<figure>
+<img src="/img/nlg_overview_fig10.png" height="940" width="660" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Up: The convolutioanl-deconvolutional encoder decoder part of proposed hybrid VAE. Bottom-left: Bottom-right} </figcaption>
+</figure>
+
 
 
 Finally, developing new methods to address the latent variable collapse is still an very active research area. In very recent work~\cite{}. The authors propose semi-amortized inference that initializing variatoinal parameter by amortized inference then applying stochastic variational inference to refine them. Another recent work~\cite introduce skip connections between latent variables $\boldsymbol{z}$ and decoder to enforce the relationship between latent variables and reconstrunction loss. Both methods are justified better than previous method by experiments.
 
-## Autoencoder
+## Adversarial Regularized Autoencoder
 
 ## Policy gradient
 
