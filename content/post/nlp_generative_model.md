@@ -24,7 +24,7 @@ preview = false
 
 There are many developments of GAN ([GAN zoo](https://github.com/hindupuravinash/the-gan-zoo))and amazing applications for the continuous data such image and video. However, the development of GAN and its application in discrete data such as text is far from explored. In general, it is the discrete nature of text that makes apply GAN to such data difficult. According to [Goodfellow](https://www.reddit.com/r/MachineLearning/comments/40ldq6/generative_adversarial_networks_for_text/), the generator learns how to slightly change the synethetic data through the gradient information from the discriminator. Such slight change is only meaningful for continuous data. For example, it is resaonable to change a pixel value from 1 to 1 + 0.001 while it is not for changing "penguin" to  "penguin" + 0.001.
 
-Recently, several approaches for text generation have been proposed to address this issue and some of them have many interesting results. In this article, I will give an overview of these methods, issue about evaluation and their applications.
+Recently, several approaches for text generation have been proposed to address this issue and some of them have many interesting results. In this article, I will give an overview of these methods, evaluation and their applications.
 
 {{% toc %}}
 # Model for text generation
@@ -77,7 +77,7 @@ Actually, the recent generative model for text is based on VAE proposed by Bowma
 
 The core issue of using VAE is _latent variable collapse_, which means the KL term in the ELBO become zero during the optimization. This might seem to be confused at first since zero KL term seems to be beneficial to ELBO as we hope to maximize it. However, if we examine the KL term carefully, zero KL term means that the posterior $q\_{\theta}(z|x\_i)$ is equal to prior $p(z)$ thus posterior is independent from the input data! Latent variable collapse thus preclude us from learning useful latent representation from the input data which is a goal we aim to achieve. This is a common case in language modelling as discussed in~\cite{}. Once this happened, the RNN decoder will completely ignore the latent representation and naively use decoder's capability to achieve the optimal. The difficulty here is how do we maximize the ELBO and prevent the KL term from going to zero at the same. 
 
-Bowman et al. propose KL-annealing and word dropout to alleviate this issue, which increase the weight of KL term during training and randomly replace word token by \<UNK\> to weaken the decoder thus force decoder to rely on global representation $z$ instead of learned language model. However, these techniques cannot solve this issue and VAE trained in this way is slightly worse than language model (RNNLM) in NLL despite it can geenrate more plausible sentences than autoencoder when moving in the latent space. Therefore many this line of research focus on finding better techniques to address latent variable collapse and I will dicuss them later.
+Bowman et al. propose KL-annealing and word dropout to alleviate this issue, which increase the weight of KL term during training and randomly replace word token by \<UNK\> to force decoder to rely on global representation $z$ instead of learned language model. However, these techniques cannot solve this issue and VAE trained in this way is slightly worse than language model (RNNLM) in NLL despite it can geenrate more plausible sentences and more smooth transition than autoencoder when moving in the latent space. Therefore many this line of research focus on finding better techniques to address latent variable collapse and I will dicuss them later.
 
 Yang et al. hypothesize and validate the contexual capacity of decoder is related to latent variable collapse. They replace original RNN decoder with dilated convolutional neural network as the figure below, which facilitates the control of contextual capacity by changing dilation.
 
@@ -124,20 +124,21 @@ In their experiments, the compare the decoding performane of proposed method wit
 </figure>
 
 
-
 Finally, developing new methods to address the latent variable collapse is still an very active research area. In very recent work~\cite{}. The authors propose semi-amortized inference that initializing variatoinal parameter by amortized inference then applying stochastic variational inference to refine them. Another recent work~\cite introduce skip connections between latent variables $\boldsymbol{z}$ and decoder to enforce the relationship between latent variables and reconstrunction loss. Both methods are justified better than previous method by experiments.
 
 ## Adversarial Regularized Autoencoder
+Autoendoer is a naive model for learning latent representation of data. As mentioned in~\cite, applying it to learn text will result in non-smooth transition in the latent space, which lead to development of VAE and related techniques to improve it. Recently, a recent work deviates from this line of research. Zhao et al. propose Adversarially Regularized Autoencoders which extend the adversarially autoencoder to discrete data by adding learned prior to achieve some interesting applications. One of them is a reminiscent of conducting vector arithmetic of attribute in latent space in the early development of GAN, which means __smiling woman - normal woman plus normal man = smiling man__.
+
+
 
 ## Policy gradient
 
 ## Alternative decoding objective
-
-# Evaluation
 # Application
 ## Image to text generation
 ## (Visual) Dialog generation
 ## Style tranfer for text
+# Evaluation
 # Final Words
 
 
