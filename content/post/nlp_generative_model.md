@@ -127,12 +127,20 @@ In their experiments, the compare the decoding performane of proposed method wit
 Finally, developing new methods to address the latent variable collapse is still an very active research area. In very recent work~\cite{}. The authors propose semi-amortized inference that initializing variatoinal parameter by amortized inference then applying stochastic variational inference to refine them. Another recent work~\cite introduce skip connections between latent variables $\boldsymbol{z}$ and decoder to enforce the relationship between latent variables and reconstrunction loss. Both methods are justified better than previous method by experiments.
 
 ## Adversarial Regularized Autoencoder
-Autoendoer is a naive model for learning latent representation of data. As mentioned in~\cite, applying it to learn text will result in non-smooth transition in the latent space, which lead to development of VAE and related techniques to improve it. Recently, a recent work deviates from this line of research. Zhao et al. propose Adversarially Regularized Autoencoders which extend the adversarially autoencoder to discrete data by adding learned prior to achieve some interesting applications. One of them is a reminiscent of conducting vector arithmetic of attribute in latent space in the early development of GAN, which means __smiling woman - normal woman plus normal man = smiling man__.
+Autoendoer is a naive model for learning latent representation of data. As mentioned in~\cite, applying it to learn text will result in non-smooth transition in the latent space, which lead to development of VAE and related techniques to improve it. Recently, a recent work deviates from this line of research. Zhao et al. propose Adversarially Regularized Autoencoders (ARAE) which extends the adversarially autoencoder to discrete data by adding learned prior to achieve some interesting applications. One of them is a reminiscent of conducting vector arithmetic of attribute in latent space in the early development of GAN, which means __smiling woman - normal woman + normal man = smiling man__.
 
 <figure>
 <img src="/img/nlg_overview_fig11.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">Vector arithmic example of images in~\cite{}</figcaption>
 </figure>
+
+Similarily, the authors change "attribute" of sentence (i.e. Subject, verb and modifier) by similar vector arithmetic. They first generate 1M sentences by ARAE and parse the sentences to get subject, verb and modifiers. To substitute the verb, say sleeping, with running in a sentence. They first substract the mean latent vector of all sentences which contain sleeping from original sentence then add the mean latent vector of all sentences which contain running. The results are in Fig 12.
+
+<figure>
+<img src="/img/nlg_overview_fig12.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Vector arithmic example of images in~\cite{}</figcaption>
+</figure>
+
 
 ## Policy gradient
 
