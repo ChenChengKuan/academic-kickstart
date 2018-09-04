@@ -129,7 +129,10 @@ Finally, developing new methods to address the latent variable collapse is still
 ## Adversarial Regularized Autoencoder
 Autoendoer is a naive model for learning latent representation of data. As mentioned in~\cite, applying it to learn text will result in non-smooth transition in the latent space, which lead to development of VAE and related techniques to improve it. Recently, a recent work deviates from this line of research. Zhao et al. propose Adversarially Regularized Autoencoders which extend the adversarially autoencoder to discrete data by adding learned prior to achieve some interesting applications. One of them is a reminiscent of conducting vector arithmetic of attribute in latent space in the early development of GAN, which means __smiling woman - normal woman plus normal man = smiling man__.
 
-
+<figure>
+<img src="/img/nlg_overview_fig11.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Vector arithmic example of images in~\cite{}</figcaption>
+</figure>
 
 ## Policy gradient
 
