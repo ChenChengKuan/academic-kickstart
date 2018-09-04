@@ -1,7 +1,7 @@
 +++
 title = "Generative Model for text: An overview of recent advancements"
 date = 2018-08-26T14:54:06+08:00
-draft = false
+draft = true
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
@@ -19,7 +19,7 @@ caption = ""
 preview = false
 
 +++
-> _Abstract: generative adversarial network (GAN) has shown siginificant imporvments of learning latent representation of high-dimensional continuous data such as images and videos. Many amazing applications such as video synthesis and image translation are based on the capability of GAN. Unfortunately, applying GAN to discrete input remain a challenging problem mainly because the discrete nature of data prevent the discriminator from providing useful gradient information for learning. In this post, I will foucus on some recent techniques to address this difficulty in the text generation, its evaluation and applications_
+> _Abstract: Generative adversarial network (GAN) has shown siginificant imporvments of learning latent representation of high-dimensional continuous data such as images and videos. Many amazing applications such as video synthesis and image translation are based on the capability of GAN. Unfortunately, applying GAN to discrete input remain a challenging problem mainly because the discrete nature of data prevent the discriminator from providing useful gradient information for learning. In this post, I will foucus on some recent techniques to address this difficulty in the text generation, its evaluation and applications_
 
 
 There are many developments of GAN ([GAN zoo](https://github.com/hindupuravinash/the-gan-zoo))and amazing applications for the continuous data such image and video. However, the development of GAN and its application in discrete data such as text is far from explored. In general, it is the discrete nature of text that makes apply GAN to such data difficult. According to [Goodfellow](https://www.reddit.com/r/MachineLearning/comments/40ldq6/generative_adversarial_networks_for_text/), the generator learns how to slightly change the synethetic data through the gradient information from the discriminator. Such slight change is only meaningful for continuous data. For example, it is resaonable to change a pixel value from 1 to 1 + 0.001 while it is not for changing "penguin" to  "penguin" + 0.001.
@@ -120,25 +120,39 @@ They further introduce an auxiliary loss $J\_{aux} = -\alpha\mathbb{E}\_{q(\bold
 In their experiments, the compare the decoding performane of proposed method with vanilla VAE under historyless and history setting. In other words, they test the decoding performance of models by using word dropout rate $p$ from 1.0 to certain ratio during training (i.e. Randomly replacing the ground truth with \<UNK\> token during training). They also study the benefit of auxilary loss for decoding performance as the expressive power of decoder become stronger (i.e. deeper layer). The results are shown in Fig 10.
 <figure>
 <img src="/img/nlg_overview_fig10.png" height="940" width="660" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<figcaption align="middle">Up: The convolutioanl-deconvolutional encoder decoder part of proposed hybrid VAE. Bottom-left: Bottom-right} </figcaption>
+<figcaption align="middle">Up: The performance between Hybrid VAE and LSTM VAE on historyless decoing. Bottom left: The benefit of auxilary loss for decoder with various depth. Bottom-right: The performance comparison of Hybrid VAE with LSTM VAE with different word dropout rate.} </figcaption>
 </figure>
 
+We can see that the hybrid VAE converge far faster and better than LSTM VAE no matter the length of text (Up). The proposed auxilary loss can prevent the KL term from 0 which allow us to train deeper (more powerful) decoder without latent variable collpase (Bottom left). The last figure (Bottom right) demonstrates that the Hybrid VAE perform similar to LSTM-VAE in terms of bits-per-character. However, the KL term of Hybrid VAE is not zero while it is alomost zero for LSTM-VAE, which suggest LSTM-VAE more serious latent variable collapse issue than Hybrid VAE.
 
 Finally, developing new methods to address the latent variable collapse is still an very active research area. In very recent work~\cite{}. The authors propose semi-amortized inference that initializing variatoinal parameter by amortized inference then applying stochastic variational inference to refine them. Another recent work~\cite introduce skip connections between latent variables $\boldsymbol{z}$ and decoder to enforce the relationship between latent variables and reconstrunction loss. Both methods are justified better than previous method by experiments.
 
 ## Adversarial Regularized Autoencoder
-Autoendoer is a naive model for learning latent representation of data. As mentioned in~\cite, applying it to learn text will result in non-smooth transition in the latent space, which lead to development of VAE and related techniques to improve it. Recently, a recent work deviates from this line of research. Zhao et al. propose Adversarially Regularized Autoencoders (ARAE) which extends the adversarially autoencoder to discrete data by adding learned prior to achieve some interesting applications. One of them is a reminiscent of conducting vector arithmetic of attribute in latent space in the early development of GAN, which means __smiling woman - normal woman + normal man = smiling man__.
+Autoendoer is a naive model for learning latent representation of data. As mentioned in~\cite, applying it to learn text will result in non-smooth transition in the latent space, which lead to development of VAE and related techniques to improve it. Recently, a recent work deviates from this line of research. Zhao et al. propose Adversarially Regularized Autoencoders (ARAE) which extends the adversarially autoencoder to discrete data by adding learned prior to achieve some interesting applications. One of them is a reminiscent of conducting vector arithmetic of attribute in latent space in the early development of GAN, which means: *smiling woman - normal woman + normal man = smiling man*. 
 
 <figure>
 <img src="/img/nlg_overview_fig11.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">Vector arithmic example of images in~\cite{}</figcaption>
 </figure>
 
-Similarily, the authors change "attribute" of sentence (i.e. Subject, verb and modifier) by similar vector arithmetic. They first generate 1M sentences by ARAE and parse the sentences to get subject, verb and modifiers. To substitute the verb, say sleeping, with running in a sentence. They first substract the mean latent vector of all sentences which contain sleeping from original sentence then add the mean latent vector of all sentences which contain running. The results are in Fig 12.
+Similarily, the authors change "attribute" of sentence (i.e. Subject, verb and modifier) by similar vector arithmetic. They first generate 1M sentences by ARAE and parse the sentences to get subject, verb and modifiers. To substitute the verb, say sleeping, with running in a sentence. They first substract the mean latent vector of all sentences which contain sleeping from original sentence then add the mean latent vector of all sentences which contain running. The results are in Fig 12. 
 
 <figure>
 <img src="/img/nlg_overview_fig12.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<figcaption align="middle">Vector arithmic example of images in~\cite{}</figcaption>
+<figcaption align="middle">Vector arithmic example of ARAE in text. The right colum is the attribute to change and the the left top and down subrow are the generated text before and after vector arithmetic.</figcaption>
+</figure>
+
+Although the text generated after the vector arithmetic is somewhat not plausible, it is the same for such task in the image data as shown in Fig 11. In my opinion, I found this progress made by ARAE very interesting because it remind me of the early development of GAN for image and I expect to see futrue improvement can generate more fluent sentences. 
+
+The high level idea of ARAE is illustrated in Fig. 13. Given a encoder, a generator, a decoder,  and a critic parameterized by $\phi$, $\theta$, $\psi$, $w$, the goal is to learn a model which can map real discrete data $x \sim \mathbb{P}_{\star}$ to a latent code $z$ that is indistinguishable from a prior $\tilde{z}$ generated from a noise $s$. It is achieved by minimize the reconstruction loss of autoencoder regularized with a prior $P\_{z}$, which is
+
+\begin{align}
+\textrm{min}\_{\phi, \psi}\~\mathcal{L}\_{rec} + \lambda W(\mathbb{P}\_{Q}, \mathbb{P}\_{z})~,
+\end{align}
+$W$ is Wasserstein distance between two distributions and is computed by critic function $f_w$ which is adversarially trained by encoder $\phi$ and generator $\theta$. \lambda is just a hyperparameter to control the strength of regularization. For simiplicty,  $w$ and $\theta$ are not shown above but are trained during optimization of critic and encoder. Please check the paper for more theoretical results and implementation details.
+<figure>
+<img src="/img/nlg_overview_fig13.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Vector arithmic example of ARAE in text. The right column is the attribute to change and the the left top and down subrow are the generated text before and after vector arithmetic.</figcaption>
 </figure>
 
 
