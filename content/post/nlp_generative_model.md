@@ -1,7 +1,7 @@
 +++
 title = "Generative Model for text: An overview of recent advancements"
 date = 2018-08-26T14:54:06+08:00
-draft = true
+draft = false
 
 # Tags and categories
 # For example, use `tags = []` for no tags, or the form `tags = ["A Tag", "Another Tag"]` for one or more tags.
@@ -158,8 +158,16 @@ $W$ is Wasserstein distance between two distributions and is computed by critic 
 ## Reinforcement Learning
 In the previous sections, the approaches applied to text generation is within the scope of traditional generative model like GAN, VAE and autoencoder. From this section, I will discuss another line of reaesech that formalize text generation as a reinforcement learning problem. Under this scenario, the generator (decoder) is treated as an agent and the next token to output is viewed as next action to take given the current state. The goal of the generator is to maximize the total reward. Many works~\cite{} are proposed based on this framework and use task specific score (e.g, BLEU, ROUGE) as reward to train the agent.
 
-Recently, Yu et al. extend previous works and propose SeqGAN, which is a more GAN-like method compared to the previous. In SeqGAN, the goal of agent is to fool the discriminator by trying to generate fakse samples which are indistinguishable from the real ones to maximize the reward. A discrimiator try to distinguish the real and generated samples. Therefore, the reward signal to guide the agent is a score to measure how close the generated samples to the real ones. A naive choose of this score is to view the discriminator as binary classifer (i.e. real and fake) and use the softmax value of the real class. More complex score will be discussed later. One advantage of this design is that it is difficult to define a good reward for some tasks like poem and music generation. By training discriminator with real and generated samples,  The idea of SeqGAN is presented in Fig 14:
+Recently, Yu et al. extend previous works and propose SeqGAN, which is a more GAN-like method compared to the previous. In SeqGAN, the goal of agent is to fool the discriminator by trying to generate fakse samples which are indistinguishable from the real ones to maximize the reward. A discrimiator try to distinguish the real and generated samples. Therefore, the reward signal to guide the agent is a score to measure how close the generated samples to the real ones. A naive choose of this score is to view the discriminator as binary classifer (i.e. real and fake) and use the softmax value of the real class.
 
+SeqGAN apply REINFORCE~\cite with the above reward to train the generator. To calculate the reward at time $t$, it applies Monte-Carlo search to roll-out current policy to ger estimated reward as shown in Fig 14.
+
+<figure>
+<img src="/img/nlg_overview_fig14.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Vector arithmic example of ARAE in text. The right column is the attribute to change and the the left top and down subrow are the generated text before and after vector arithmetic.</figcaption>
+</figure>
+
+ One advantage of this design is that it is difficult to define a good reward for some tasks like poem and music generation. By using the output from generator as reward signal, we can bypass this issue if we carefully orchestrate the training between generator and discriminator.
 
 ## Alternative decoding objective
 # Application
