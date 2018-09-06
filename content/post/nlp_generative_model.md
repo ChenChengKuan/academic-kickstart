@@ -169,7 +169,7 @@ A key difference is that SeqGAN relies on carefully pretraining on corpus to ini
 
 <figure>
 <img src="/img/nlg_overview_fig15.png" height="480" width="360" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<figcaption align="middle"><Performance of different different training strategies. The vertical line marks the begin of adversarial training. $k$ is the times of roll-out.</figcaption>
+<figcaption align="middle">Performance of different different training strategies. The vertical line marks the begin of adversarial training. $k$ is the times of roll-out.</figcaption>
 </figure>
 
 
