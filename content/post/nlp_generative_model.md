@@ -168,7 +168,7 @@ Recently, Yu et al. extend previous works and propose SeqGAN, which is a more GA
 Despite the similarity shared by SeqGAN and GAN. A key difference, or weakness is that SeqGAN relies on carefully pretraining on corpus to initalize the generator. The performance of generator is highly susceptile to the pretraining stage and we might get worse performance than MLE if we fail to pretrain the generator properly as shown in Fig. 15
 
 <figure>
-<img src="/img/nlg_overview_fig15.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/nlg_overview_fig15.png" height="480" width="360" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">Vector arithmic example of ARAE in text. The right column is the attribute to change and the the left top and down subrow are the generated text before and after vector arithmetic.</figcaption>
 </figure>
 
