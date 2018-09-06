@@ -176,7 +176,7 @@ A key difference is that SeqGAN relies on carefully pretraining on corpus to ini
 
 SeqGAN also suffers some similar issuses reported in VAE and GAN. Mode-collapse happend when generator greedily generate the tokens which maximize the reward thus lack of the diversity. Gradient from discriminator might vanish if the discriminator become too strong to be fooled by generator. Several improvements have been proposed to address these issues.
 
-Che et al. propose MaliGAN~\cite{}, which extends~\cite{} to design a renoralized MLE objective. They prove that this new objective can provide better training signal even if the discriminator is less optimal (i.e. $D$ ranges from 0.5 to $\frac{p\_{data}}{p\_{data} + p\_{G}}$).
+Che et al. propose MaliGAN~\cite{}, which extends~\cite{} to design a renoralized MLE objective. They prove that this new objective can provide better training signal even if the discriminator is less optimal (i.e. $D$ ranges from 0.5 to $p\_{data}/(p\_{data} + p\_{G})$).
 
 
 
