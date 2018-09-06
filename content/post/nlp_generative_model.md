@@ -156,24 +156,27 @@ $W$ is Wasserstein distance between two distributions and is computed by critic 
 </figure>
 
 ## Reinforcement Learning
-In the previous sections, the approaches applied to text generation is within the scope of traditional generative model like GAN, VAE and autoencoder. From this section, I will discuss another line of reaesech that formalize text generation as a reinforcement learning problem. Under this scenario, the generator (decoder) is treated as an agent and the next token to output is viewed as next action to take given the current state. The goal of the generator is to maximize the total reward. Many works~\cite{} are proposed based on this framework and use task specific score (e.g, BLEU, ROUGE) as reward to train the agent.
+In the previous sections, the approaches applied to text generation is within the scope of traditional generative model like GAN, VAE and autoencoder. From this section, I will discuss another line of reaesech that cast text generation as a reinforcement learning problem. Under this scenario, the generator (decoder) is treated as an agent and the next token to output is viewed as next action to take given the current state. The goal of the generator is to maximize the total reward. Many works~\cite{} are proposed based on this framework and use task specific score (e.g, BLEU, ROUGE) as reward to train the agent.
 
-Recently, Yu et al. extend previous works and propose SeqGAN, which is a more GAN-like method compared to the previous. In SeqGAN, the goal of agent is to fool the discriminator by trying to generate fakse samples which are indistinguishable from the real ones to maximize the reward. A discrimiator try to distinguish the real and generated samples. Therefore, the reward signal to guide the agent is a score to measure how close the generated samples to the real ones. A naive choose of this score is to view the discriminator as binary classifer (i.e. real and fake) and use the softmax value of the real class. To estimate the reward at time $t$, SeqGAN applies Monte-Carlo search to roll-out current policy to estimate the reward as shown in Fig 14. One advantage of this design is that it is difficult to define a good reward for some tasks like poem and music generation.By using the output from generator as reward signal, we can bypass this issue.
+Recently, Yu et al. extend previous works and propose SeqGAN, which is a more GAN-like method compared to the previous. In SeqGAN, the goal of generator $G$ is to fool the discriminator $D$ by generating fakse sequences which are indistinguishable from the real ones to maximize the reward. The discrimiator tries to distinguish the real and generated sequences. Therefore, the reward signal to guide the agent is a score to measure how close the generated sequences to the real ones. A naive choose of this score is to view the discriminator as binary classifer (i.e. real and fake) and use the softmax value of the real class. 
+
+A question comes up is how do we get the intermediate reward before the sentences is completed ? It is as if it is hard to know whether the next move we take will help us win or lose in Go. To estimate this reward, SeqGAN applies Monte-Carlo search to roll-out current policy to estimate the reward as shown in Fig 14. The agent use the current learned policy network to roll-out several times till the end of sentences to get the estimated reward. One advantage of this design is that it is difficult to define a good reward for some tasks like poem and music generation. By using the output from generator as reward signal, we can bypass this issue.
 
 <figure>
 <img src="/img/nlg_overview_fig14.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<figcaption align="middle">Left: Training discriminator by feeding real and fake data. Right: Evaluation of reward at time step $t$. The agent use the current learned policy network to roll-out several times till the end of sentences to get the estimated reward.</figcaption>
+<figcaption align="middle">Left: Training discriminator by feeding real and fake data. Right: Evaluation of reward at time step $t$.</figcaption>
 </figure>
 
-A key difference is that SeqGAN relies on carefully pretraining on corpus to initialize the agent. Similar to GAN, the performance of generator is highly susceptile to the training strategies of generator and discriminator. We might get worse peroformance than MLE if we fail to orchestrate the generator and discriminator well.
+A key difference is that SeqGAN relies on carefully pretraining on corpus to initialize the agent. Similar to GAN, the performance of generator is highly susceptile to the training strategies of generator and discriminator. We might get worse peroformance than MLE if we fail to orchestrate the training of generator and discriminator well.
 
 <figure>
 <img src="/img/nlg_overview_fig15.png" height="480" width="360" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <figcaption align="middle">Performance of different different training strategies. The vertical line marks the begin of adversarial training. $k$ is the times of roll-out.</figcaption>
 </figure>
 
-SeqGAN also suffers some similar issuses reported in VAE and GAN. Mode-collapse happend when generator greedily generate the tokens which maximize the reward thus lack of the diversity. Gradient from discriminator might vanish if the discriminator become too strong to be fooled by generator. I will follow~\cite{} and introduce several approaches to address these issues.
+SeqGAN also suffers some similar issuses reported in VAE and GAN. Mode-collapse happend when generator greedily generate the tokens which maximize the reward thus lack of the diversity. Gradient from discriminator might vanish if the discriminator become too strong to be fooled by generator. Several improvements have been proposed to address these issues.
 
+Che et al. propose MaliGAN~\cite{}, which extends~\cite{} to design a renoralized MLE objective. They prove that this new objective can provide better training signal even if the discriminator is less optimal (i.e. $D$ ranges from 0.5 to $\frac{p_{data}{p_{data} + p_{G} }$).
 
 
 
