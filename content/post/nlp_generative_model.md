@@ -172,7 +172,11 @@ A key difference is that SeqGAN relies on carefully pretraining on corpus to ini
 <figcaption align="middle">Performance of different different training strategies. The vertical line marks the begin of adversarial training. $k$ is the times of roll-out.</figcaption>
 </figure>
 
-SeqGAN also suffers some similar issuses reported in VAE and GAN. Mode-collapse happend when generator greedily generate the tokens which maximize the reward thus lack of the diversity. Gradient from discriminator might vanish if the discriminator become too strong to be fooled by generator. I will overview some methods to address these issues in the next section
+SeqGAN also suffers some similar issuses reported in VAE and GAN. Mode-collapse happend when generator greedily generate the tokens which maximize the reward thus lack of the diversity. Gradient from discriminator might vanish if the discriminator become too strong to be fooled by generator. I will follow~\cite{} and introduce several approaches to address these issues.
+
+
+
+
 
 
 
