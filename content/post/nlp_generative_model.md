@@ -158,10 +158,10 @@ $W$ is Wasserstein distance between two distributions and is computed by critic 
 ## Reinforcement Learning
 In the previous sections, the approaches applied to text generation is within the scope of traditional generative model like GAN, VAE and autoencoder. From this section, I will discuss another line of reaesech that cast text generation as a reinforcement learning problem. Under this scenario, the generator (decoder) is treated as an agent and the next token to output is viewed as next action to take given the current state. The goal of the generator is to maximize the total reward. Many works~\cite{} are proposed based on this framework and use task specific score (e.g, BLEU, ROUGE) as reward to train the agent.
 
-Recently, Yu et al. extend previous works and propose SeqGAN, which is a more GAN-like method compared to the previous. In SeqGAN, the goal of generator $G\_\theta$ is to fool the discriminator $D_\phi$ by generating fakse sequences which are indistinguishable from the real ones to maximize the reward. The discrimiator tries to distinguish the real and generated sequences. Therefore, the reward signal to guide the agent is a score to measure how close the generated sequences to the real ones. A naive choose of this score is to view the discriminator as binary classifer (i.e. real and fake) and use the softmax value of the real class. Formally,
+Recently, Yu et al. extend previous works and propose SeqGAN, which is a more GAN-like method compared to the previous. In SeqGAN, the goal of generator $G\_\theta$ is to fool the discriminator $D_\phi$ by generating fakse sequences $\tilde{s} \sim p_{G}$ which are indistinguishable from the real ones $s \sim p_{data} $ to maximize the reward. The discrimiator tries to distinguish the real and generated sequences. Therefore, the reward signal to guide the agent is a score to measure how close the generated sequences to the real ones. A naive choose of this score is to view the discriminator as binary classifer (i.e. real and fake) and use the softmax value of the real class. Formally,
 
 \begin{align}
-G\_{\theta}: \textrm{ argmax}\_{\theta}\sum\_{t=0}^{n-1}r\_{t}\textrm{log}p\_{G\_{\theta}}(s\_{t} | s\_{0:t-1})
+G\_{\theta}: \textrm{ argmax}\_{\theta}R(\tilde{s}) = \sum\_{t=0}^{n-1}r\_{t}\textrm{log}p\_{G\_{\theta}}(w\_{t} | w\_{0:t-1})
 \end{align}
 \begin{align}
 D\_{\phi}: \textrm{ argmin}\_{\phi}-\mathbb{E}\_{s \sim p\_{data}}\textrm{log}(D\_{\phi}) - \mathbb{E}\_{\tilde{s} \sim p\_{G}}(1 - \textrm{log}D\_{\phi})
@@ -181,7 +181,7 @@ A key difference is that SeqGAN relies on carefully pretraining on corpus to ini
 <figcaption align="middle">Performance of different different training strategies. The vertical line marks the begin of adversarial training. $k$ is the times of roll-out.</figcaption>
 </figure>
 
-SeqGAN also suffers some similar issuses reported in VAE and GAN. Mode-collapse happend when generator greedily generate the tokens which maximize the reward thus lack of the diversity. Gradient from discriminator might vanish if the discriminator become too strong to be fooled by generator. Several improvements have been proposed to address these issues.
+SeqGAN also suffers similar issuses reported in VAE and GAN. Mode-collapse happend when generator greedily generate the tokens which maximize the reward thus lack of the diversity. Gradient from discriminator might vanish if the discriminator become too strong to be fooled by generator. Several improvements have been proposed to address these issues.
 
 Che et al. propose MaliGAN~\cite{}, which extends~\cite{} to design a renoralized MLE objective. They prove that this new objective can provide better training signal even if the discriminator is less optimal (i.e. $D$ ranges from 0.5 to $p\_{data}/(p\_{data} + p\_{G})$). A bias term also introduce 
 
