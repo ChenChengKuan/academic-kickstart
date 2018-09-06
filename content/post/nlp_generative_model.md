@@ -161,7 +161,9 @@ In the previous sections, the approaches applied to text generation is within th
 Recently, Yu et al. extend previous works and propose SeqGAN, which is a more GAN-like method compared to the previous. In SeqGAN, the goal of generator $G\_\theta$ is to fool the discriminator $D_\phi$ by generating fakse sequences which are indistinguishable from the real ones to maximize the reward. The discrimiator tries to distinguish the real and generated sequences. Therefore, the reward signal to guide the agent is a score to measure how close the generated sequences to the real ones. A naive choose of this score is to view the discriminator as binary classifer (i.e. real and fake) and use the softmax value of the real class. Formally,
 
 \begin{align}
-G\_{\theta}: \textrm{ argmax}\_{\theta}\sum\_{t=0}^{n-1}r\_{t}\textrm{log}p\_{G\_{\theta}}(s\_{t} | s\_{0:t-1}) \\\
+G\_{\theta}: \textrm{ argmax}\_{\theta}\sum\_{t=0}^{n-1}r\_{t}\textrm{log}p\_{G\_{\theta}}(s\_{t} | s\_{0:t-1})
+\end{align}
+\begin{align}
 D\_{\phi}: \textrm{ argmin}\_{\phi}-\mathbb{E}\_{s \sim p\_{data}}\textrm{log}(D\_{\phi}) - \mathbb{E}\_{\tilde{s} \sim p\_{G}}(1 - \textrm{log}D\_{\phi})
 \end{align}
 
