@@ -160,7 +160,7 @@ In the previous sections, the approaches applied to text generation is within th
 
 Recently, Yu et al. extend previous works and propose SeqGAN, which is a more GAN-like method compared to the previous. In SeqGAN, the goal of generator $G\_\theta$ is to fool the discriminator $D_\phi$ by generating fakse sequences which are indistinguishable from the real ones to maximize the reward. The discrimiator tries to distinguish the real and generated sequences. Therefore, the reward signal to guide the agent is a score to measure how close the generated sequences to the real ones. A naive choose of this score is to view the discriminator as binary classifer (i.e. real and fake) and use the softmax value of the real class. Formally
 \begin{align}
-G_{\theta}: \textrm{max}\sum\_{t=0}{n-1}r\_t\textrm{log}p\_G\_{\theta}(s\_{t} | s_{0:t-1})
+G\_{\theta}: \textrm{max}\sum\_{t=0}{n-1}r\_t\textrm{log}p\_G\_{\theta}(s\_{t} | s_{0:t-1}
 \end{align}
 
 A question comes up is how do we get the intermediate reward before the sentences is completed ? It is as if it is hard to know whether the next move we take will help us win or lose in Go. To estimate this reward, SeqGAN applies Monte-Carlo search to roll-out current policy to estimate the reward as shown in Fig 14. The agent use the current learned policy network to roll-out several times till the end of sentences to get the estimated reward. One advantage of this design is that it is difficult to define a good reward for some tasks like poem and music generation. By using the output from generator as reward signal, we can bypass this issue.
