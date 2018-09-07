@@ -197,7 +197,10 @@ R\_{\phi}(s_i|U, C) = \mathbb{E}\_{u \in U}P(s_i|u,C)
 \end{align}
 
 The final score of input sentence $s\_i$ is the expectation over the whole reference set, which is contruced by randomly sampling real setences during learning. This simple modification of loss improve SeqGAN in several task as shown in Fig 16.
-
+<figure>
+<img src="/img/nlg_overview_fig16.png" height="480" width="360" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Performance of different different training strategies. The vertical line marks the begin of adversarial training. $k$ is the times of roll-out.</figcaption>
+</figure>
 
 
 
