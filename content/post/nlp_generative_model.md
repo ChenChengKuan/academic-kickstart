@@ -204,9 +204,13 @@ The final score of input sentence $s\_i$ is the expectation over the whole refer
 
 Despite the improvements bring by these methods, there are still two challenges: The first is using scalar as score might not be informative enought to guide the generator as it cannot well represent the intermediate structure of text during generation process. The second is estimating the intermediate reward tends to be noisy and sparse especially in long text generation where generator get reward only when entire sentences are finished.
 
-Guo et al. propose LeakGAN that combines feature matching in~\cite{} and hierarchical reinforcemne learning to mitigate these challenges. A bird eye's view of LeakGAN is illustrated in Fig. 17, given generator $G\_{\theta}$ (bottom dotted-line) and $D\_{\phi}$ (upper dotted-line), the generator is broken into Manager ($\mathcal{M}$) and Worker module ($\mathcal{W}$), 
+Guo et al. propose LeakGAN that combines feature matching in~\cite{} and hierarchical reinforcemne learning to mitigate these challenges. A bird eye's view of LeakGAN is illustrated in Fig. 17:
+<figure>
+<img src="/img/nlg_overview_fig17.png" height="1200" width="800" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Left: The performance comparion among RankGAN and other baselines on synthetic data. The green vertical line marks the start of adversarial training. Up-right: The performance comparison on Chinese poem generation Bottom-right: The perforance comparison on coco-caption generation</figcaption>
+</figure>
 
-
+Given generator $G\_{\theta}$ (bottom dotted-line) and $D\_{\phi}$ (upper dotted-line), the generator is broken into Manager ($\mathcal{M}$) and Worker module ($\mathcal{W}$). To generate next word $x\_{t+1}$, the current sentece $S\_{t}$ is first fed into feature extratctor $\mathcal{F} $inside $D\_{\phi}$. The extracted feature then *leak* to manager in the generator to compute a goal vector projected to action space $w\_{t}$ by a linear projection $\psi$. The worker comptute the probability distribution of next action to take given the previos word $x\_{t}$ then adjust its distribution by element-wise dot with  
 
 
 
