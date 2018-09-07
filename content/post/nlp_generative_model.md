@@ -196,10 +196,10 @@ Given input sentences $s\_i$ , reference sentence $s\_u$ from a reference set $U
 R\_{\phi}(s_i|U, C) = \mathbb{E}\_{u \in U}P(s_i|u,C)
 \end{align}
 
-The final score of input sentence $s\_i$ is the expectation over the whole reference set, which is contruced by randomly sampling real setences during learning. This simple modification of loss improve SeqGAN in several task as shown in Fig 16.
+The final score of input sentence $s\_i$ is the expectation over the whole reference set, which is contruced by randomly sampling real setences during learning. This simple modification of loss improve SeqGAN in various task as shown in Fig 16. RankGAN has better performance on synthetic data, Chinese poem generation, coco-caption generation in BLEU and human study. They also have better BLEU score on generate Shakespear play.
 <figure>
-<img src="/img/nlg_overview_fig16" height="480" width="360" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<figcaption align="middle">Performance of different different training strategies. The vertical line marks the begin of adversarial training. $k$ is the times of roll-out.</figcaption>
+<img src="/img/nlg_overview_fig16" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<figcaption align="middle">Left: The performance comparion among RankGAN and other baselines on synthetic data. Up-right: The performance comparison on Chinese poem generation Bottom-right: The perforance comparison on coco-caption generation</figcaption>
 </figure>
 
 
