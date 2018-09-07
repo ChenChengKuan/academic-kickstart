@@ -202,9 +202,9 @@ The final score of input sentence $s\_i$ is the expectation over the whole refer
 <figcaption align="middle">Left: The performance comparion among RankGAN and other baselines on synthetic data. The green vertical line marks the start of adversarial training. Up-right: The performance comparison on Chinese poem generation Bottom-right: The perforance comparison on coco-caption generation</figcaption>
 </figure>
 
-Despite the improvements bring by the above methods, there are still two issue not well addressed. The first using scalar as score might not be informative enought to guide the generator as it cannot well represent the intermediate structure of text during generation process. The second is estimating the intermediate reward prone to be noisy and sparse especially in long text generation, where generator get reward only when entire sentences are generated.
+Despite the improvements bring by these methods, there are still two challenges: The first is using scalar as score might not be informative enought to guide the generator as it cannot well represent the intermediate structure of text during generation process. The second is estimating the intermediate reward tends to be noisy and sparse especially in long text generation where generator get reward only when entire sentences are finished.
 
-Guo et al. propose LeakGAN which combine hierarchial reinforcement~\cite{} learning and feature matching in~\cite{} to address these issues. 
+Guo et al. propose LeakGAN that combines feature matching in~\cite{} and hierarchical reinforcemne learning to mitigate these challenges. A bird eye's view of LeakGAN is illustrated in Fig. 17, given generator $G\_{\theta}$ (bottom dotted-line) and $D\_{\phi}$ (upper dotted-line), the generator is broken into Manager ($\mathcal{M}$) and Worker module ($\mathcal{W}$), 
 
 
 
