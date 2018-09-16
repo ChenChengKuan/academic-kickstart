@@ -52,5 +52,3 @@ It was until the end of the competition did I know what I was trying had had a m
 ## Conclusion
 This was my first competition and I was happy to get a descent rank. Although the whole competioin involved many unexplainable hacks, it was still a great experience to compete with other Kaggler. One funny story I would like to share is: Because the first place won the other competitors by a large margin, many competitors had a hard time in the last week of competition. Enjoy this [thread](https://www.kaggle.com/c/expedia-hotel-recommendations/discussion/21458)!
 
-{{ template "_internal/disqus.html" . }}
-
