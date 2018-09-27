@@ -24,12 +24,11 @@ The rapid development of GAN blossoms into many amazing applications in the cont
 
 <!--more-->
 <figure>
-<img src="/img/nlg_overview_celeb.png" height="600" width="400" style="float:left; background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<img src="/img/nlg_overview_lsun.png" height="400" width="300" style="float:left; background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<img src="/img/ezgif.com-video-to-gif.gif" height="600" width="400" style="float:left; background:none; border:none; box-shadow:none; margin=0; padding=0"/>
-<img src="/img/ganart.jpg" height="400" width="300" style="float:left; background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/nlg_overview_celeb.png" height=auto width=50% style="float:left; background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/nlg_overview_lsun.png" height=auto width=50% style="float:left; background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/ezgif.com-video-to-gif.gif" height=auto width=50% style="float:left; background:none; border:none; box-shadow:none; margin=0; padding=0"/>
+<img src="/img/ganart.jpg" height=auto width=50% style="float:left; background:none; border:none; box-shadow:none; margin=0; padding=0"/>
 <p style="clear: both;">
-
 <figcaption>**Up**: Celebrity and objects generated in [<a href="#1">1</a>]. **Bottom-left**:Multimodal dog to cats image translation from MUNIT [<a href="#2">2</a>]. **Bottom-right**:Latent space of GAN trained with different paintings by Helena sarin [<a href="#3">3</a>]</figcaption>
 </figure>
 
