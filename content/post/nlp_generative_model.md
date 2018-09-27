@@ -19,7 +19,7 @@ caption = ""
 preview = false
 
 +++
-The rapid development of GAN blossoms into many amazing applications in the continuous data such as the image. They can be used to generate high-quality people or objects or translate pictures into different domains. Recently, GAN even starts to serve as a tool for the artist to create their work.
+The rapid development of GAN blossoms into many amazing applications in the continuous data such as image. They can be used to generate high-quality people or objects or translate pictures into different domains. Recently, GAN even starts to serve as a tool for the artist to create their work.
 <a name="bp1"></a>
 
 <!--more-->
@@ -176,7 +176,7 @@ This is the vector arithmetic in latent space of DCGAN [<a href="#23">23</a>], w
 *smiling woman - normal woman + normal man = smiling man*
 
 Is there any recent text generation model that can achieve the similar effect?
-Zhao et al. propose Adversarially Regularized Autoencoders (ARAE) [<a href="#24">24</a>] which can do such vector arithmetic in the latent space of text. Similar to the above example, the authors change "attribute" of sentence (i.e., Subject, verb, and modifier) and generate the sentence with desired attributes by vector arithmetic. They first generate 1M sentences by ARAE and parse the sentences to get subject, verb, and modifiers. To substitute the verb, say sleeping, with running in a sentence. They first subtract the mean latent vector of all sentences which contain sleeping from original sentence then add the mean latent vector of all sentences which contain running. The results are in Fig 15. 
+Zhao et al. propose Adversarially Regularized Autoencoders (ARAE) [<a href="#24">24</a>] which can do such vector arithmetic in the latent space of text. Similar to the above example, the authors change "attribute" of sentence (i.e., Subject, verb, and modifier) and generate the sentence with desired attributes by vector arithmetic. They first generate 1M sentences by ARAE and parse the sentences to get subject, verb, and modifiers. To substitute the verb, say sleeping, they first subtract the mean latent vector of all sentences which contain sleeping from original sentence then add the mean latent vector of all sentences which contain running. The results are shown in Fig 15. 
 
 <figure>
 <img src="/img/nlg_overview_fig12.png" height="800" width="600" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
