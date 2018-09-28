@@ -1,10 +1,10 @@
 +++
-title = ""
-date = 2017-12-11T22:06:19+08:00
-draft = true
+title = "Domainlayernorm"
+date = 2018-09-28T10:01:27+08:00
+draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Cheng-Kuan Chen","Hao-Jan Liu","Shou-De Lin"]
+authors = ["Cheng Kuan Chen", "ZhuFeng Pan", "Min Sun", "Ming-Yu Liu"]
 
 # Publication type.
 # Legend:
@@ -15,10 +15,10 @@ authors = ["Cheng-Kuan Chen","Hao-Jan Liu","Shou-De Lin"]
 # 4 = Technical report
 # 5 = Book
 # 6 = Book chapter
-publication_types = ["4"]
+publication_types = ["3"]
 
 # Publication name and optional abbreviated version.
-publication = "An End-to-End Deep Embedding Framework For Malware Detection and An Interpretable Plug-in for Convolutional Neural Network"
+publication = "Unsupervised Stylish Image Description Generation via Domain Layer Norm"
 publication_short = ""
 
 # Abstract and optional shortened version.
@@ -43,7 +43,7 @@ tags = []
 
 # Links (optional).
 url_pdf = ""
-url_preprint = "https://drive.google.com/file/d/1OLdTl7ivr-zVBGgYONeFFqvAUiaeax1T/view?usp=sharing"
+url_preprint = "https://arxiv.org/abs/1809.06214"
 url_code = ""
 url_dataset = ""
 url_project = ""
