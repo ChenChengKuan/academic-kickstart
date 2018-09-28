@@ -1,5 +1,5 @@
 +++
-title = "Domainlayernorm"
+title = ""
 date = 2018-09-28T10:01:27+08:00
 draft = false
 
