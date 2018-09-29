@@ -228,7 +228,7 @@ A question comes up here is how do we get the intermediate reward before the sen
 <figcaption align="middle">**Left**: Training discriminator by feeding real and fake data. **Right**: Evaluation of reward at time step $t$.</figcaption>
 </figure>
 
-A key difference in training strategy between SeqGAN and standard GAN is it requires pretrain the generator on corpus before adversarial training. Similar to GAN, the performance of the generator is highly susceptible to the training strategies of generator and discriminator. We might get worse performance than MLE if we fail to orchestrate the training of generator and discriminator well. Fig. 18 shows different training strategies (i.e., how frequently the generator and discriminator update their parameters) on the synthetic dataset.
+A key difference in training strategy between SeqGAN and standard GAN is it requires pretrain the generator on the target corpora before adversarial training. Similar to GAN, the performance of the generator is highly susceptible to the training strategies of generator and discriminator. We might get worse performance than MLE if we fail to orchestrate the training of generator and discriminator well. Fig. 18 illustrates different training strategies (i.e., how frequently the generator and discriminator update their parameters) on the synthetic dataset, which shows the negative log likelihood of SeqGAN pretrain on the target corpora first then apply adversarial training for the  remaining training process.
 
 <figure>
 <img src="/img/nlg_overview_fig15.png" height="480" width="360" style="background:none; border:none; box-shadow:none; margin=0; padding=0"/>
