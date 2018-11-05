@@ -15,10 +15,10 @@ authors = ["Cheng Kuan Chen", "ZhuFeng Pan", "Min Sun", "Ming-Yu Liu"]
 # 4 = Technical report
 # 5 = Book
 # 6 = Book chapter
-publication_types = ["1"]
+publication_types = ["3"]
 
 # Publication name and optional abbreviated version.
-publication = ""
+publication = "Unsupervised Stylish Image Description Generation via Domain Layer Norm."
 publication_short = ""
 
 # Abstract and optional shortened version.
