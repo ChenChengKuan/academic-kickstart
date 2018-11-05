@@ -1,5 +1,5 @@
 +++
-date = 2018-11-06T00:05:41+08:00
+date = 2019-11-06T00:05:41+08:00
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -42,7 +42,7 @@ tags = []
 
 # Links (optional).
 url_pdf = ""
-url_preprint = "https://arxiv.org/abs/1809.0621"
+url_preprint = "https://arxiv.org/abs/1809.06214"
 url_code = ""
 url_dataset = ""
 url_project = ""
