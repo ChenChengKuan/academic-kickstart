@@ -18,7 +18,7 @@ authors = ["Cheng Kuan Chen", "ZhuFeng Pan", "Min Sun", "Ming-Yu Liu"]
 publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
-publication = "Unsupervised Stylish Image Description Generation via Domain Layer Norm. AAAI 2019"
+publication = ""
 publication_short = ""
 
 # Abstract and optional shortened version.
