@@ -1,10 +1,10 @@
 +++
-title = "Domainlayernorm"
+title = ""
 date = 2018-11-06T00:05:41+08:00
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = [""]
+authors = ["ChengKuan Chen","ZhuFeng Pan","Min Sun","Ming-Yu Liu"]
 
 # Publication type.
 # Legend:
