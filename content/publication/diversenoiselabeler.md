@@ -1,5 +1,5 @@
 +++
-title = ""
+title = "aa"
 date = 2017-12-11T21:51:17+08:00
 draft = false
 
@@ -21,7 +21,7 @@ publication_types = ["1"]
 publication = "A Classification model for Diverse and Noisy Labelers. PAKDD"
 
 # Abstract and optional shortened version.
-abstract = "With the popularity of the Internet and crowdsourcing, it becomes easier to obtain labeled data for specific problems. Therefore, learning from data labeled by multiple annotators has become a common scenario these days. Since annotators have different expertise, labels acquired from them might not be perfectly accurate. This paper derives an optimization framework to solve this task through estimating the expertise of each annotator and the labeling difficulty for each instance. In addition, we introduce similarity metric to enable the propagation of annotations between instances."
+abstract = ""
 abstract_short = ""
 
 # Featured image thumbnail (optional)
