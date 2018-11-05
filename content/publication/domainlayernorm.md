@@ -1,5 +1,4 @@
 +++
-title = ""
 date = 2018-11-06T00:05:41+08:00
 draft = false
 
