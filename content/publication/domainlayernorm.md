@@ -1,10 +1,10 @@
 +++
-title = ""
-date = ""
+title = "Domainlayernorm"
+date = 2018-11-06T00:05:41+08:00
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["ChengKuan Chen","ZhuFeng Pan","Min Sun","Ming-Yu Liu"]
+authors = [""]
 
 # Publication type.
 # Legend:
@@ -15,7 +15,7 @@ authors = ["ChengKuan Chen","ZhuFeng Pan","Min Sun","Ming-Yu Liu"]
 # 4 = Technical report
 # 5 = Book
 # 6 = Book chapter
-publication_types = ["3"]
+publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
 publication = "Unsupervised Stylish Image Description Generation via Domain Layer Norm"
@@ -43,7 +43,7 @@ tags = []
 
 # Links (optional).
 url_pdf = ""
-url_preprint = "https://arxiv.org/abs/1809.06214"
+url_preprint = "https://arxiv.org/abs/1809.0621"
 url_code = ""
 url_dataset = ""
 url_project = ""
