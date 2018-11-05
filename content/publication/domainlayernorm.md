@@ -1,6 +1,6 @@
 +++
 title = ""
-date = 2018-11-05T23:44:09+08:00
+date = ""
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
