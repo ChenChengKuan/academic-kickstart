@@ -42,7 +42,7 @@ Authors: Zichao Yang, Zhiting Hu, Chris Dyer, Eric P. Xing, Taylor Berg-Kirkpatr
 
 #### Content preserving text generation with attribute controls 
 Authors: Lajanugen Logeswaran, Honglak Lee, Samy Bengio<br>
-**Summary and thoughts:** The technique: Back-Translation has got hotter and hotter since it got success in unsupervised machine translation. This paper applied this technique to create a model that can control multiple attributes of generated text (and the combination of them) at the same time. This work is the first model that can do this. Quick follow-up work in ICLR2019: Multiple-Attribute Text Rewriting from MILA is also based on this techniques and get stronger performance, which confirms me to put back-translation to my toolbox of attribute control of discrete data.<br>
+**Summary and thoughts:** The technique: Back-Translation has got hotter and hotter since it got success in unsupervised machine translation and won them best paper award in EMNLP2018. This paper applied this technique to create a model that can control multiple attributes of generated text (and the combination of them) at the same time. This work is the first model that can do this. Quick follow-up work in ICLR2019: Multiple-Attribute Text Rewriting from MILA is also based on this techniques and get stronger performance, which confirms me to put back-translation to my toolbox of attribute control of discrete data.<br>
 
 One interesting fact: The conclusion of this paper and the one from MILA is somehow contradicted lol.
 
