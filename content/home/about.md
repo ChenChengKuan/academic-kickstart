@@ -10,8 +10,8 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Generative Model in molecurlar data"
-    "Machine leanring application in chem/bio info"
+    "Generative Model in molecurlar data",
+    "Machine leanring in chem/bio info",
     "Quantum machine learning"
   ]
 
