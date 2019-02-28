@@ -11,6 +11,8 @@ weight = 5
 [interests]
   interests = [
     "Generative Model in molecurlar data"
+    "Machine leanring application in chem/bio info"
+    "Quantum machine learning"
   ]
 
 # List your qualifications (such as academic degrees).
