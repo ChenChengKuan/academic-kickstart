@@ -10,8 +10,9 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Generative Model",
-    "Visual Language Understanding"
+    "Generative Model in molecurlar data"
+    "Machine learning in bio/chem info"
+    "Quantum machine learning"
   ]
 
 # List your qualifications (such as academic degrees).
