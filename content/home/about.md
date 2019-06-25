@@ -10,8 +10,8 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Generative Model in molecurlar data",
-    "Machine leanring in chem/bio info",
+    "Machine leanring in biological applications",
+    "Vision and Language"
     "Quantum machine learning"
   ]
 
@@ -26,8 +26,10 @@ weight = 5
 
 # About me
 
-I received my BS of Electrical Engineering from [National Taiwan University](http://www.ntu.edu.tw/english/). I currently work with Prof. [Min Sun](http://aliensunmin.github.io/) in [Vision Science Lab] (http://aliensunmin.github.io/lab/info.html) (Co-supervised with [Dr. Ming-Yu, Liu](https://scholar.google.com/citations?user=y-f-MZgAAAAJ&hl=en)). Previously, I was interested machine learning application in vision and language. In particular, I am interested in natural language generation and how to learn disentangled representation of natural language. Recently, my main interest shift to machine learning application and techniques in molecular data. Please see my [CV](https://drive.google.com/file/d/1tZ_z1apURHfzesbXyn411w9pl2i8gmbw/view?usp=sharing) for more details. (I also have a [Kaggle page](https://www.kaggle.com/kuanchen)). 
+I received my BS of Electrical Engineering from [National Taiwan University](http://www.ntu.edu.tw/english/) and will start my MSc in Computer Science at Columbia University on September. Previously, I was fortunate enought to work with Prof. [Min Sun](http://aliensunmin.github.io/) in [Vision Science Lab] (http://aliensunmin.github.io/lab/info.html) (Co-supervised with [Dr. Ming-Yu, Liu](https://scholar.google.com/citations?user=y-f-MZgAAAAJ&hl=en)) where I conducted research about vision and language and drug discovery.
 
-I am looking for Ph.D. start from 2019 Fall or any research internship start from 2019 Winter/Spring.
+Recently, I am passionate about applying machine learning techniques to drug/material discovery, genome and various problems related to proteins (e.g., structure prediction, design, and protein engineering). My vision is using machine learning to revolutionize how human discover the world. Please see my [resume](https://drive.google.com/file/d/1ujLX9LcZKw1hzTZJb09b3DHkCu99Gwfn/view?usp=sharing) for more details. (I also have a [Kaggle page](https://www.kaggle.com/kuanchen)). 
+
+I am looking for 2020 summer internship.
 
 **News**: One paper "Unsupervised Stylish Image Description Generation via Domain Layer Norm" is accepted by AAAI 2019, aloha Hawaii!  
