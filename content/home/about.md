@@ -11,8 +11,8 @@ weight = 5
 [interests]
   interests = [
     "Machine leanring in biological applications",
-    "Vision and Language"
-    "Quantum machine learning"
+    "Vision and Language",
+    "Quantum machine learning",
   ]
 
 # List your qualifications (such as academic degrees).
