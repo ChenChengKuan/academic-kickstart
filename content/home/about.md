@@ -28,7 +28,7 @@ weight = 5
 
 I received my BS of Electrical Engineering from [National Taiwan University](http://www.ntu.edu.tw/english/) and will start my MSc in Computer Science at Columbia University on September. Previously, I was fortunate enought to work with Prof. [Min Sun](http://aliensunmin.github.io/) in [Vision Science Lab](http://aliensunmin.github.io/lab/info.html) (Co-supervised with [Dr. Ming-Yu, Liu](https://scholar.google.com/citations?user=y-f-MZgAAAAJ&hl=en)) where I conducted research about vision and language and drug discovery.
 
-Recently, I am passionate about applying machine learning techniques to drug/material discovery, genome and various problems related to proteins (e.g., structure prediction, design, and protein engineering). My vision is using machine learning to revolutionize how human discover the world. Please see my [resume](https://drive.google.com/file/d/1ujLX9LcZKw1hzTZJb09b3DHkCu99Gwfn/view?usp=sharing) for more details. (I also have a [Kaggle page](https://www.kaggle.com/kuanchen)). 
+Recently, I am passionate about applying machine learning techniques to drug/material discovery, genome and various problems related to proteins (e.g., structure prediction, design, and protein engineering). My vision is using machine learning to revolutionize how human discover the world. Please see my [resume](https://drive.google.com/open?id=1OW6Vv8GdHy82s54WP5Jecw4AUxS2sikk) for more details. (I also have a [Kaggle page](https://www.kaggle.com/kuanchen)). 
 
 I am looking for 2020 summer internship.
 
