@@ -28,6 +28,6 @@ I received my BS of Electrical Engineering from [National Taiwan University](htt
 
 Recently, I am passionate about applying machine learning techniques to drug/material discovery, genome and various problems related to proteins (e.g., structure prediction, design, and protein engineering). My vision is using machine learning to revolutionize how human discover the world. Please see my [resume](https://drive.google.com/file/d/1Oc-9P6qpRSUmhuKytcC1OYWgY6G-AxPx/view?usp=sharing) for more details. (I also have a [Kaggle page](https://www.kaggle.com/kuanchen)). 
 
-I am looking for 2020 summer internship.
+I am looking for 2020 summer internship/research opportunity.
 
 **News**: One paper "Unsupervised Stylish Image Description Generation via Domain Layer Norm" is accepted by AAAI 2019, aloha Hawaii!  
