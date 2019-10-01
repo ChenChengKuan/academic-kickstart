@@ -10,9 +10,7 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Machine leanring in biological applications",
-    "Vision and Language",
-    "Quantum machine learning",
+    "Machine leanring in biological applications"
   ]
 
 # List your qualifications (such as academic degrees).
