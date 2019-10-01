@@ -30,4 +30,4 @@ Recently, I am passionate about applying machine learning techniques to drug/mat
 
 I am looking for 2020 summer internship/research opportunity.
 
-**News**: One paper "Unsupervised Stylish Image Description Generation via Domain Layer Norm" is accepted by AAAI 2019, aloha Hawaii!  
+**News**: One short paper is accepted 1st workshop of Learning Meaningful Representations of Life in NeurIPS 2019
