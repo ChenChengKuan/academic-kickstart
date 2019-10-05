@@ -1,5 +1,5 @@
 +++
-date = 2019-11-06T00:05:41+08:00
+date = 2019-01-06T00:05:41+08:00
 draft = false
 title = ""
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
@@ -17,7 +17,7 @@ authors = ["ChengKuan Chen","ZhuFeng Pan","Min Sun","Ming-Yu Liu"]
 publication_types = ["1"]
 
 # Publication name and optional abbreviated version.
-publication = "Unsupervised Stylish Image Description Generation via Domain Layer Norm AAAI 2019"
+publication = "Unsupervised Stylish Image Description Generation via Domain Layer Norm AAAI"
 publication_short = ""
 
 # Abstract and optional shortened version.
