@@ -18,6 +18,8 @@ weight = 5
 # List your qualifications (such as academic degrees).
 
 [[education.courses]]
+  course = "MSc in Computer Science"
+  instituion = "Columbia University"
   course = "BSc in Electrical Engineering"
   institution = "National Taiwan University"
   #year = 2008
