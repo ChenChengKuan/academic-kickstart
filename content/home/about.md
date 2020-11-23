@@ -19,9 +19,7 @@ weight = 5
 
 [[education.courses]]
   course = "MSc in Computer Science"
-  instituion = "Columbia University"
-  course = "BSc in Electrical Engineering"
-  institution = "National Taiwan University"
+  institution = "Columbia University"
   #year = 2008
  
 +++
